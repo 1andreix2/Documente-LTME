@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Încărcare Documente</title>
+</head>
+<body>
+
+<h1>Încărcare Documente</h1>
+
+<form id="uploadForm" action="#" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileToUpload" id="fileToUpload" accept=".pdf, .doc, .docx">
+    <input type="submit" value="Încarcă Document" name="submit">
+</form>
+
+<script>
+    document.getElementById("uploadForm").onsubmit = function(event) {
+        event.preventDefault();
+        var formData = new FormData();
+        var fileInput = document.getElementById('fileToUpload');
+        formData.append('file', fileInput.files[0]);
+
+        // Aici puteți adăuga logica de trimitere a datelor către server (ex. Ajax request)
+
+        console.log("Documentul a fost încărcat cu succes!");
+        fileInput.value = ''; // Clear input
+    };
+</script>
+
+</body>
+</html>
